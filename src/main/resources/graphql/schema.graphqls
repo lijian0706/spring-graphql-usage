@@ -1,0 +1,24 @@
+type Query{
+    details(id:ID!): Human # 根据ID查询Human详情，Human类型定义在下面
+    list: [Human] # 查询所有Human
+    carList(ownerCardNum:String!): [Car] #
+}
+
+type Human{
+    id: ID! # Human id，不可为空
+    cardNum: String! # 身份证号，不可为空
+    name: String! # 名字，不可为空
+    age: Int # 年龄
+    address: Address # 住址，Address类型定义在下面
+}
+
+type Address{
+    province: String # 省份
+    city: String # 城市
+    addr: String # 地址详情
+}
+
+type Car{
+    plateNum: String!
+    ownerCardNum: String
+}
