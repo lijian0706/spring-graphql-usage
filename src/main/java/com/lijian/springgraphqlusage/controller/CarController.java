@@ -19,6 +19,11 @@ public class CarController {
         this.carService = carService;
     }
 
+    /**
+     * 根据车主身份证号查询车辆列表接口
+     * @param ownerCardNum
+     * @return
+     */
     @QueryMapping(value = "carList")
     public List<Car> list(@Argument String ownerCardNum){
         return carService.list(ownerCardNum);

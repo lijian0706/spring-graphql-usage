@@ -45,4 +45,10 @@ public class HumanService {
     public List<Human> list() {
         return humanRepository.findAll();
     }
+
+    public Human modifyName(Long id, String name) {
+        Human human = humanRepository.findById(id).orElseThrow();
+        human.modifyName(name);
+        return humanRepository.save(human);
+    }
 }

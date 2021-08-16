@@ -31,4 +31,8 @@ public class Human {
         private String city;
         private String addr;
     }
+
+    public void modifyName(String name) {
+        this.name = name;
+    }
 }

@@ -1,7 +1,8 @@
 type Query{
     details(id:ID!): Human # 根据ID查询Human详情，Human类型定义在下面
     list: [Human] # 查询所有Human
-    carList(ownerCardNum:String!): [Car] #
+    carList(ownerCardNum:String!): [Car] # 根据身份证号查询车辆
+    car(id:ID!): Car
 }
 
 type Human{
@@ -19,6 +20,18 @@ type Address{
 }
 
 type Car{
-    plateNum: String!
-    ownerCardNum: String
+    plateNum: String! # 车牌号
+    ownerCardNum: String # 车主身份证号
 }
+
+type Mutation{
+    modifyName(cmd:HumanUpdateCmd!): Human # 入参名称需要与接口入参名保持一致
+}
+
+input HumanUpdateCmd{ # 接口入参需要使用input修饰
+    id: ID!
+    name: String!
+}
+
+
+
